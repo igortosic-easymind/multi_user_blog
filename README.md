@@ -17,3 +17,5 @@ Deploy your project with gcloud app deploy.
 View your project at unique-name.appspot.com.
 
 When developing locally, you can use dev_appserver.py to run a copy of your app on your own computer, and access it at http://localhost:8080/.
+
+link https://multi-user-blog-udacity-168314.appspot.com/blog
