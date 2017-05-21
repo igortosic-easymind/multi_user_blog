@@ -1,31 +1,64 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="/static/mdb.min.css" />
 
-{% block content %}
+  <title>Blog Udacity-Project</title>
+</head>
 
-  {% for p in posts %}
-  <div class="single-post">
-    {{ p.render() | safe }}
-    <div class="posts">
-      <!-- container for edit/delete posts -->
-      <a href="/blog/editpost/{{p.key().id()}}" class="btn btn-dark-green btn-lg btn-block"><span class="glyphicon glyphicon-edit"></span>Edit post</a>
-          
-      <a href="/blog/delpost/{{p.key().id()}}" class="btn btn-warning btn-lg btn-block"><span class="glyphicon glyphicon-trash"></span>Delete post</a>
+<body class="fixed-sn mdb-skin">
 
-      <!--post comments-->
-      <div class="comment">
-          <a href="/blog/comment/{{p.key().id()}}" class="links" title="post comment">
-            comment
-          </a>
-      </div>
-      <!-- container for like/unlike posts -->
-      <a href="/blog/like/{{p.key().id()}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{p.likes}})</a>
-        
-      <a href="/blog/dislike/{{p.key().id()}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{p.dislikes}})</a>
-        
-      </div>
+<!--Navbar-->
+<nav class="navbar fixed-top navbar-toggleable-md scrolling-navbar navbar-dark bg-primary">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/blog">
+            <strong>Blog Udacity-Project</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+            <ul class="navbar-nav mr-auto">
+             
+               
+            </ul>
+            <form class="form-inline waves-effect waves-light">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/blog/newpost">New Post<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="padding: 0.5rem 1.5rem;">
+                    {% if user %}
+      {{user.name}} (<a class="login-link" href="/logout">logout</a>)
+    {% else %}
+      <a class="login-link" href="/login">login</a>
+      |
+      <a class="login-link" href="/signup">signup</a>
+    {% endif %}
+                </li> 
+            </ul>
+            </form>
+        </div>
     </div>
-  </div>
+</nav>
+<!--/.Navbar-->
+<div class="container" style="padding-top: 8rem;">
+  
+        
+            {{errors}}
+          {% block content %}
+          {% endblock %}
+        
+   
+</div>       
+  
+</body>
 
-  {% endfor %}
+<script type="text/javascript" src="/static/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/static/tether.min.js"></script>
+<script type="text/javascript" src="/static/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/mdb.min.js"></script>
 
-{% endblock %}
+</html>
