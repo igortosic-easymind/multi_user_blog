@@ -1,0 +1,18 @@
+<div class="post">
+  <div class="jumbotron">
+  <div class="card card-primary text-center z-depth-2">
+        <div class="card-block">
+            <h2 class="white-text">{{p.subject}}</h2>
+        </div>
+    </div>
+    <br>
+
+    <p>
+      {{p.created.strftime("%b %d, %Y")}}
+    </p>
+    <hr>
+      <div class="excerpt">
+    {{p._render_text | safe}}
+  </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+     <!--Card Primary-->
+    <div class="card card-primary text-center z-depth-2">
+        <div class="card-block">
+            <h2 class="white-text">Edit Post</h2>
+        </div>
+    </div>
+    <!--/.Card Primary-->
+     <br>
+<div class="newPost">
+ <form method="post">
+    <input type="hidden" name="id_post">
+      
+      <div class="md-form">
+        <input type="text" id="form1" class="form-control" type="text" name="subject" value="{{subject}}">
+        <label for="form1" class="">Subject</label>
+      </div>
+
+      <!--Textarea-->
+      <div class="md-form">
+        <i class="fa fa-pencil prefix"></i>
+        <textarea type="text" id="form8" class="md-textarea" name="content">{{content}}</textarea>
+        <label for="form8">Blog</label>
+      </div>
+      <div class="error">{{error}}</div>
+      <button class="btn btn-dark-green btn-lg btn-block" type="submit" id="new-Sub">Post on Blog</button>
+      <br>
+      <a href="/blog" class="cancel-link"><button type="button" class="btn btn-warning btn-lg btn-block">Cancel</button></a>
+  </form>
+</div>
+{% endblock %}

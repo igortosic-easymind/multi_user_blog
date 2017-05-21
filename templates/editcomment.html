@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post">
+  <div class="post-heading">
+    <div class="post-title">
+      {{post.subject}}
+    </div>
+
+    <div class="post-date">
+      {{post.created.strftime("%b %d, %Y")}}
+    </div>
+  </div>
+
+  <div class="post-content">
+    {{post._render_text | safe}}
+  </div>
+  <br>
+  <form method="post" action="/blog/editcomment/{{comment.key().id()}}">
+      <div>{{error}}</div>
+       <div class="md-form">
+        <i class="fa fa-pencil prefix"></i>
+        <textarea type="text" id="form8" class="md-textarea" name="content">{{content}}</textarea>
+        <label for="form8">Post your comment here!</label>
+        </div>
+      <br>
+      <button class="btn btn-dark-green btn-lg btn-block" type="submit" class="edit-del-like edit-comm">Submit</button>
+      <br>
+      <a href="/blog/{{post.key().id()}}" class="edit-del-like edit-comm"><button type="button" class="btn btn-warning btn-lg btn-block">Cancel</button></a>
+  </form>
+</div>  
+{% endblock %}

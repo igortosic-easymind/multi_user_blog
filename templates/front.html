@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% for p in posts %}
+  <div class="single-post">
+    {{ p.render() | safe }}
+    <div class="posts">
+      <!-- container for edit/delete posts -->
+      <a href="/blog/editpost/{{p.key().id()}}" class="btn btn-dark-green btn-lg btn-block"><span class="glyphicon glyphicon-edit"></span>Edit post</a>
+          
+      <a href="/blog/delpost/{{p.key().id()}}" class="btn btn-warning btn-lg btn-block"><span class="glyphicon glyphicon-trash"></span>Delete post</a>
+
+      <!--post comments-->
+      <div class="comment">
+          <a href="/blog/comment/{{p.key().id()}}" class="links" title="post comment">
+            comment
+          </a>
+      </div>
+      <!-- container for like/unlike posts -->
+      <a href="/blog/like/{{p.key().id()}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{p.likes}})</a>
+        
+      <a href="/blog/dislike/{{p.key().id()}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{p.dislikes}})</a>
+        
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{post.render() | safe}}
+  <div class="error">{{error}}</div>
+  	<form method="post" action="/blog/commentPage/{{post.key().id()}}">
+  		<div>{{error}}</div>
+       <div class="md-form">
+        <i class="fa fa-pencil prefix"></i>
+        <textarea type="text" id="form8" class="md-textarea" name="comment">{{content}}</textarea>
+        <label for="form8">Post a comment:</label>
+      </div>
+  		<br>
+  		<button class="btn btn-dark-green btn-lg btn-block" type="submit">Post a Comment</button>
+  	</form>
+  	<br>
+  	<!-- user comments -->
+  	<div id="com-container">
+  	{% for comm in comments %}
+  		<div class="post">
+  			<div id="com-head">
+  				<div id="com-title">
+  					{{comm.author}}
+  				</div>
+  				<div id="com-date">
+  					({{comm.created.strftime("%b %d, %Y")}})
+  				</div>
+  			</div>
+  			<div id="com-content">
+
+  				{{comm.comment | safe}}
+  			</div>
+  			<div>
+  				<a href="/blog/editcomment/{{comm.key().id()}}" title="edit comment" class="comm-links"><i class="fa fa-pencil prefix"></i></a>
+  				|
+  				<a href="/blog/delcomment/{{comm.key().id()}}" title="delete comment" class="comm-links"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  			</div>
+  		</div>
+  	{% endfor %}
+  	</div>
+  </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+.signup-login {
+  height: 50%;
+  margin: auto 0;
+}
+
+.container {
+  width: 60%;
+  margin: 50px auto;
+  background-color: #dfdfdf;
+}
+
+.head {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#sign {
+  background-color: #f0f0f0;
+}
+
+#sign:hover {
+  background-color: #808080;
+  color: white;
+}
+
+#login-link {
+  background-color: #f0f0f0;
+}
+
+#login-link:hover {
+  background-color: #808080;
+  color: white;
+}
+
+table {
+  margin: 0 auto;
+}
+
+td {
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 6px 0;
+}
+
+input[type=submit] {
+  color: black;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+}
+
+input[type=submit]:hover {
+  color: #ff3f4a;
+  border-radius: 2px;
+  border-width: 2px;
+  border-style: groove;
+  border-color: #ff3f4a;
+}
+
+.label {
+  text-align: center;
+}
+
+.error {
+  color: red
+}
+
+#log-link {
+  text-decoration: None;
+  color: black;
+}
+
+#log-link:hover {
+  color: white;
+}
